@@ -1,0 +1,61 @@
+//BACKGROUND INDEX
+.bg-index {
+    background-color: #202020;
+}
+// HEADER
+.header-index{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-index h1{
+  margin-top: 20px;
+  font-size: 3rem;
+  color: #dbdbdb;
+}
+
+// MAIN
+.cont-main{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #dbdbdb;
+}
+
+.cont-main p{
+  font-size: 1.5rem;
+  font-family: serif;
+  color: #fffc5f;
+}
+
+.cont-form{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cont-form h2{
+  color: #dbdbdb;
+}
+
+.cont-form{
+    form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+        input{
+            margin: 10px;
+        }
+    }
+}
+.cont-form form button{
+  cursor: pointer;
+}
