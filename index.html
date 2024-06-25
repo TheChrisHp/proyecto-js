@@ -26,18 +26,22 @@
 
     <main>
         <div class="cont-main">
-            <h1>Para calcular su Interés recuerde:</h1>
+            <h1>Para calcular Interés Simple recuerde:</h1>
             <p>Debe ingresar <mark style="font-family: serif;">Capital, Tasa de Interés y Tiempo</mark></p>
         </div>
         <div class="cont-form">
             <h2>Calcular Interés Simple</h2>
 
             <form action="">
-                <input type="number" value="num1" placeholder="Digite su Capital" id="num1">
-                <input type="number" value="num2" placeholder="Digite su Tasa de Interes" id="num2">
-                <input type="number" value="num3" placeholder="Digite el tiempo" id="num3">
-                <button>Calcular</button>
-                <input type="number" name="resultado" id="resultado" disabled placeholder="Aquí se mostrará el resultado">
+                <!-- <div> -->
+                <input type="text" placeholder="Digite su Capital" id="num1">
+                <input type="text" placeholder="Digite su Tasa de Interes" id="num2">
+                <!-- </div> -->
+                <input type="text" placeholder="Digite el tiempo" id="num3">
+                <div class="cont-calcular">
+                <button type="button" onclick="sumar()">Calcular</button>
+                </div>
+                <input type="number" name="resultado" id="resultado" readonly>
             </form>
         </div>
     </main>
