@@ -18,14 +18,6 @@ while (intentos) {
 
 //Crear el monto (FÓRMULA: [M = CAPITAL + INTERÉS])
 
-
-
-
-
-
-
-
-
 console.log(
   "Para futuros calculos no olvide que seguiremos actualizando nuestra web para que pueda efectuar sus cálculos."
 );
