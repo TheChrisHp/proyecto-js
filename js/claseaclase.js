@@ -226,3 +226,39 @@
 
 //     document.getElementById("resultado").value = resultado
 // }
+
+//FUNCIONES
+
+// function validacion() {
+//   let nombre = prompt("nombre");
+//   let apellido = prompt("apellido");
+
+//   if (nombre === "" || apellido === "") {
+//     console.log("NOOOO");
+//     return false;
+//   } else {
+//     console.log("GOODDD");
+//   }
+// }
+
+// validacion();
+
+//Ejercicio de patentes
+
+// let calcImpuesto = (marcaAuto) => {
+//   let impuesto = 100;
+
+//   switch (marcaAuto) {
+//     case "volvo":
+//       return (impuesto += 40);
+
+//     case "byd":
+//       return (impuesto += 25);
+
+//     default:
+//       return "Error, no existe esa marca.";
+//   }
+// };
+
+// let total = calcImpuesto("caca");
+// console.log(total);
