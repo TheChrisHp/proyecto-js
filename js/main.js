@@ -22,7 +22,7 @@ function validar(num, num2, num3) {
 
 //Creo otra función para calcular el interés compuesto
 function interesCompuesto(capital, tasa, tiempo) {
-  let iCompuesto = capital * Math.pow(1 + tasa, tiempo) - 1; //math.pow segun investigue eleva a un numero en el segundo parametro ejemplo: math.pow(5, 2) = 25
+  let iCompuesto = capital * Math.pow(1 + tasa, tiempo) - 1; //math.pow segun investigue eleva a un numero en el segundo parametro ejemplo: Math.pow(5, 2) = 25
   if (capital === 0 || tasa === 0 || tiempo === 0) {
     console.error("⛔ Error, no puede enviar datos vacíos.");
     return false;
@@ -104,14 +104,14 @@ while (intentos) {
     }
 
     //llamo a la función de interés compuesto
-    console.log(`El interés compuesto es de ➡️ ${IntCompuesto}`);
+    console.log(`El interés compuesto es de ➡️ $ ${IntCompuesto}`);
 
     let preguntaMonto = prompt(
       "¿Desea calcular Monto del Interés Compuesto? Si/No"
     );
     if (preguntaMonto.toLowerCase() === "si") {
       let monto = capital * Math.pow(1 + tasa, tiempo);
-      console.log(`El monto es de ➡️ ${monto}`);
+      console.log(`El monto es de ➡️ $ ${monto}`);
       console.log(
         "✅ Listo, su Interés Compuesto y Monto han sido calculados con éxito!"
       );
