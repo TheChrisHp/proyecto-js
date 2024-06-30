@@ -19,6 +19,19 @@ function validar(num, num2, num3) {
   }
   return true;
 }
+//cap tasa  tiempo tiempotasa
+function interesSimple(tasa, tTasa) {
+  let tiempoTasaSimple = (tasa * 1) / tTasa;
+  return tiempoTasaSimple; //resultado mensual para emparejar tiempo de tasa y tiempo en meses.
+}
+
+//Mensaje final
+function mensajeF() {
+  console.log(
+    "🧑‍💻 Para futuros calculos no olvide que seguiremos actualizando nuestra web para que pueda efectuar sus cálculos."
+  );
+}
+
 //Creo otras funciones para calcular el interés compuesto
 
 function validarInteresCompuesto(capital, tasa, tiempoTasa, tiempo) {
@@ -62,19 +75,25 @@ while (intentos) {
     "Desea calcular ¿Interés Simple o Compuesto? Simple/Compuesto"
   );
   if (respuestaInteres.toLowerCase() === "simple") {
-    let num = Number(prompt("Ingrese el capital inicial"));
-    let num2 = Number(
+    let capital = Number(prompt("Ingrese el capital inicial"));
+    let tasa = Number(
       prompt("Ingrese su Tasa de Interés (Ej: Si es 40% usar 0.4)")
     ); //suponemos que el usuario lo ingresa con 0,4 en caso de que sea 40%
-    let num3 = Number(prompt("Ingrese el Tiempo (Ej: 12 para 1 año)")); //Tiempo pensado en meses (1 año = 12 meses, 2 años = 24 meses y así...)
+    let tTasa = Number(
+      prompt(
+        "Tiempo de su Tasa (En Meses ej: Trismestral, Anual, Bimestral, etc)"
+      )
+    );
+    let tiempo = Number(prompt("Ingrese el Tiempo (Ej: 12 para 1 año)")); //Tiempo pensado en meses (1 año = 12 meses, 2 años = 24 meses y así...)
 
-    let valid = validar(num, num2, num3); //guardo la función en una variable "valid"
+    let valid = validar(capital, tasa, tiempo); //guardo la función en una variable "valid"
     // console.log(valid);
 
     if (valid === false) {
       break;
     }
-    let inversion = num * num2 * num3;
+    resTiempoTasa = interesSimple(tasa, tTasa);
+    let inversion = capital * resTiempoTasa * tiempo;
     alert(`El Interés es de: $ ${inversion}`);
     console.log(`El Interés es de ➡️ $ ${inversion}`);
 
@@ -85,7 +104,7 @@ while (intentos) {
       console.log("⛔ Error, no puede enviar texto vacio.");
       break;
     } else if (respuesta.toLowerCase() === "si") {
-      let monto = num + inversion;
+      let monto = capital + inversion;
       alert(`El monto es de: $ ${monto}`);
       console.log(`El monto es de ➡️ $ ${monto}`);
       console.log(
@@ -97,11 +116,9 @@ while (intentos) {
     }
     //Agrego una consulta si el usuario quiere continuar con otro interés simple o terminar la ejecución.
     let respuestafinal = prompt("¿Desea calcular otro interés simple? SI/NO");
-    if (respuestafinal.toLowerCase() != "si") {
+    if (respuestafinal.toLowerCase != "si") {
       intentos = false;
-      console.log(
-        "🧑‍💻 Para futuros calculos no olvide que seguiremos actualizando nuestra web para que pueda efectuar sus cálculos."
-      );
+      mensajeF();
       break;
     }
   } else if (respuestaInteres.toLowerCase() === "compuesto") {
@@ -109,9 +126,7 @@ while (intentos) {
     let tasa = Number(
       prompt("Ingrese su Tasa de Interés (Ej: Si es 40% usar 0.4)")
     );
-    let tiempoTasa = Number(
-      prompt("Ingrese tiempo de su tasa (en nro de meses)")
-    );
+    let tiempoTasa = Number(prompt("Tiempo de su tasa (En meses)"));
     let tiempo = Number(prompt("Ingrese el Tiempo (Ej: 12 para 1 año)"));
 
     let validCompuesto = validarInteresCompuesto(
@@ -141,24 +156,18 @@ while (intentos) {
         "✅ Listo, su Interés Compuesto y Monto han sido calculados con éxito!"
       );
       intentos = false;
-      console.log(
-        "🧑‍💻 Para futuros calculos no olvide que seguiremos actualizando nuestra web para que pueda efectuar sus cálculos."
-      );
+      mensajeF();
       break;
     } else if (preguntaMonto.toLowerCase() === "no") {
       intentos = false;
-      console.log(
-        "🧑‍💻 Para futuros calculos no olvide que seguiremos actualizando nuestra web para que pueda efectuar sus cálculos."
-      );
+      mensajeF();
       break;
     }
   } else {
     //Si no es ni simple ni compuesto le manda un msg que no es correcto el dato enviado y finaliza el bucle
     console.error("⛔ Debe ingresar un dato válido.");
     intentos = false;
-    console.log(
-      "🧑‍💻 Para futuros calculos no olvide que seguiremos actualizando nuestra web para que pueda efectuar sus cálculos."
-    );
+    mensajeF();
     break;
   }
 }
