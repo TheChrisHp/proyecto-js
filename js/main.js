@@ -19,25 +19,40 @@ function validar(num, num2, num3) {
   }
   return true;
 }
+//Creo otras funciones para calcular el interés compuesto
 
-//Creo otra función para calcular el interés compuesto
-function interesCompuesto(capital, tasa, tiempo) {
-  let iCompuesto = capital * Math.pow(1 + tasa, tiempo) - 1; //math.pow segun investigue eleva a un numero en el segundo parametro ejemplo: Math.pow(5, 2) = 25
-  if (capital === 0 || tasa === 0 || tiempo === 0) {
+function validarInteresCompuesto(capital, tasa, tiempoTasa, tiempo) {
+  if (capital === 0 || tasa === 0 || tiempoTasa === 0 || tiempo === 0) {
     console.error("⛔ Error, no puede enviar datos vacíos.");
     return false;
   }
-  if (Number(capital) < 0 || Number(tasa) < 0 || Number(tiempo) < 0) {
+  if (
+    Number(capital) < 0 ||
+    Number(tasa) < 0 ||
+    Number(tiempoTasa) < 0 ||
+    Number(tiempo) < 0
+  ) {
     console.error("⛔ Error, no puede enviar números negativos.");
     return false;
   }
 
-  if (isNaN(capital) || isNaN(tasa) || isNaN(tiempo)) {
+  if (isNaN(capital) || isNaN(tasa) || isNaN(tiempoTasa) || isNaN(tiempo)) {
     //valido que sólo sean números y no de tipo string.
     console.error("⛔ Error, sólo se pueden ingresar números.");
     return false;
   }
-  return iCompuesto;
+  return true;
+}
+
+function interesCompuestoMensual(tasa, tiempoTasa) {
+  //N = tiempo, tiempoTasa = denominador capitalizacion mensual (1) = numerador
+  return Math.pow(1 + tasa, 1 / tiempoTasa) - 1; //primero calculo la tasa mensual
+}
+
+function interesCompuesto(capital, tasa, tiempoTasa, tiempo) {
+  //llamo a la funcion del interes compuesto mensual
+  let resTasa = interesCompuestoMensual(tasa, tiempoTasa);
+  return capital * (Math.pow(1 + resTasa, tiempo) - 1); //math.pow segun investigue eleva a un numero en el segundo parametro ejemplo: Math.pow(5, 2) = 25
 }
 
 let intentos = true;
@@ -94,23 +109,33 @@ while (intentos) {
     let tasa = Number(
       prompt("Ingrese su Tasa de Interés (Ej: Si es 40% usar 0.4)")
     );
+    let tiempoTasa = Number(
+      prompt("Ingrese tiempo de su tasa (en nro de meses)")
+    );
     let tiempo = Number(prompt("Ingrese el Tiempo (Ej: 12 para 1 año)"));
 
-    let IntCompuesto = interesCompuesto(capital, tasa, tiempo); //guardo la función en una variable "valid"
+    let validCompuesto = validarInteresCompuesto(
+      capital,
+      tasa,
+      tiempoTasa,
+      tiempo
+    );
     // console.log(IntCompuesto);
 
-    if (IntCompuesto === false) {
+    if (validCompuesto === false) {
       break;
     }
 
+    let iCompuesto = interesCompuesto(capital, tasa, tiempoTasa, tiempo); //guardo la función en una variable "iCompuesto"
+    let monto = iCompuesto + capital;
+
     //llamo a la función de interés compuesto
-    console.log(`El interés compuesto es de ➡️ $ ${IntCompuesto}`);
+    console.log(`El interés compuesto es de ➡️ $ ${iCompuesto}`);
 
     let preguntaMonto = prompt(
       "¿Desea calcular Monto del Interés Compuesto? Si/No"
     );
     if (preguntaMonto.toLowerCase() === "si") {
-      let monto = capital * Math.pow(1 + tasa, tiempo);
       console.log(`El monto es de ➡️ $ ${monto}`);
       console.log(
         "✅ Listo, su Interés Compuesto y Monto han sido calculados con éxito!"
