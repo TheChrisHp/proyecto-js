@@ -30,20 +30,19 @@ class Cafes {
 
   ingresosTotales() {
     let valorTotal = this.precio * this.stock;
-    // console.log(`Las ganancias totales son de: ${valorTotal} pesos`);
     return valorTotal;
   }
 
   ventas(cantidad) {
     if (cantidad > this.stock) {
-      console.log(`Se han vendido ${this.stock}`);
+      console.log(`Se han vendido x ${this.stock}`);
       this.stock = 0;
       console.log(`El stock actual es de: ${this.stock}`);
     } else {
       console.log(`El stock de ${this.nombre} es de ${this.stock}`);
       this.stock -= cantidad;
-      console.log(`Se han vendido: ${this.stock}`);
-      console.log(`Stock Disponible: ${cantidad} unidades`);
+      console.log(`Se han vendido: x${cantidad}`);
+      console.log(`Stock Disponible: ${this.stock} unidades`);
       // this.ingresosTotales();
       mostrarGanancias();
     }
@@ -54,17 +53,6 @@ class Cafes {
     }
   }
 }
-
-// const cafesVendidos = () => {
-//   let ventas = [];
-//   for (let i = 0; i < cafes.length; i += 1) {
-//     if (cafes[i]) {
-//       cafes[i].ventas(2);
-//       ventas.push(`Ventas realizadas para ${cafes[i].nombre}`);
-//     }
-//   }
-//   return ventas;
-// };
 
 // creo una variable para pasar el array de objetos a poder utilizarlo en mi constructor
 let cafes = cafe.map(
@@ -84,4 +72,4 @@ const mostrarGanancias = () => {
 };
 
 // prueba de ventas
-cafes[1].ventas(7);
+cafes[1].ventas(1);
