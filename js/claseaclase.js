@@ -262,3 +262,345 @@
 
 // let total = calcImpuesto("caca");
 // console.log(total);
+
+//  CLASE DE OBJETOS
+
+//  Undefined ----> No esta definido
+//  Null -----> No tiene valor
+//  NaN -----> Not a Number (No es un numero)
+
+//  Todos estos son valores **FALSYS**
+
+// OBJETOS EJEMPLO
+
+// let telefono = {
+//   nombre: "Samsung",
+//   precio: 100,
+//   descripcion: "Samsung a54",
+//   aumentarPrecio: () => {
+//     return "El precio aumentó";
+//   },
+// };
+
+// Propiedades son como "variables" ligadas al objeto, en este ejemplo telefono es la variable objeto que tiene las propiedades "nombre, precio y descripcion"
+
+// El Metodo siempre esta ligado al objeto
+
+// console.log(telefono.nombre); // --> Al agregarle un "." al mostrar por consola podemos mostrar cualquier propiedad del objeto
+// console.log(telefono.precio);
+
+// let x = telefono.aumentarPrecio();
+// console.log(x);
+
+// Para MANIPULAR el OBJETO se puede utilizar variable.propiedad y asignarle el valor que quiera en caso de querer cambiar algun valor o actualizarlo. Ejemplo -> telefono.nombre = "motorola" y ahi estaría actualizando el valor de "Samsung" a "Motorola".
+
+// En OBJETOS el "." despues de la variable objeto se llama dotenotation (o algo asi).
+
+// PREGUNTA DE ENTREVISTA ¿Se puede reasignar un valor o crear uno en un objeto CONST? Ejemplo abajo
+
+// const perro = {
+//   nombre: "Ben",
+//   edad: 4,
+//   nombrePerro: function () {
+//     return `Hola como estas? Mi nombre es: ${this.nombre}`;
+//   },
+// };
+
+// perro.nombre = "SADASDA";
+// let nombre = perro.nombrePerro();
+
+// console.log(nombre);
+// perro.color = "marron";
+
+// perro.aumentarEdad = function () {
+//   this.edad += 1;
+// };
+
+// perro.aumentarEdad();
+// console.log(perro);
+
+// THIS => Es para poder concatenar dentro del mismo OBJETO, es decir, en vez de utilizar en el return de "nombrePerro" ${perro.nombre} utilizamos {this.nombre} ya que hace referencia al objeto en el cual se está trabajando.
+
+// CONSEJO, para que funcione el THIS en funciones fuera del objeto o dentro del objeto SIEMPRE utilizar FUNCTION y NO funciones flecha.
+
+// La respuesta es SI, ya que CONST no se puede cambiar su valor a LA VARIABLE CONST, pero si a un OBJETO CONST.
+
+// BRACKET NOTATION - Asi como existe el dot notation tambien existe el Bracket Notation que sirve de la siguiente forma: En vez de utilizar por ejemplo perro.edad se utiliza perro[edad] que es otra forma de representarlo.
+
+// Cuando usamos parametros en una funcion es necesario cuando usamos a un objeto y pedimos una propiedad utilizar bracket notation. Ejemplo: function bracket = (parametro){ perro[parametro]}
+
+// CONSTRUCTORES
+
+// class Telefono {
+//   constructor(nombre, precio, stock) {
+//     this.nombre = nombre;
+//     this.precio = precio;
+//     this.stock = stock;
+//   }
+// }
+
+// let telefono1 = new Telefono("HuaweiY62019", 90, 10);
+// let telefono2 = new Telefono("Iphone 7", 120, 2);
+// let telefono3 = new Telefono("Samsung Galaxy A54", 120, 1);
+
+// console.log(telefono1, telefono2, telefono3);
+
+// Los constructores en pocas palabras son una forma de simplificar en caso de que queramos tener varios productos y no tener que hacer demasiados objetos, ya que con los constructores es mucho mas practico crear varios como ejemplo tenemos lo de arriba.
+
+// SIMULADOR DE E-COMMERCE
+
+// class Producto {
+//   constructor(nombre, precio, stock, estaDisponible) {
+//     this.nombre = nombre;
+//     this.precio = precio;
+//     this.stock = stock;
+//     this.disponible = estaDisponible;
+//   }
+//   //creo metodos
+//   vender(cantidad) {
+//     this.stock -= cantidad;
+//     this.disponibilidad();
+//     console.log(`Se han vendido ${cantidad}`);
+//   }
+
+//   disponibilidad() {
+//     this.disponible = this.stock > 0 ? true : false;
+//     console.log(`Su disponibilidad es ${this.disponible}`);
+//   }
+// }
+
+// let caja = new Producto("Caja Pro", 100, 50, true);
+
+// caja.vender(1);
+// console.log(caja.stock);
+
+// ARRAYS
+
+// let numero = [2, 6, 9];
+
+// console.log(numero[2]); //muestro la ultima posicion porque cada elemento inicia desde 0, entonces 2 tendria la posicion 0 y 9 la 2.
+
+// console.log(numero.length); //muestro cuantos elementos hay en el array en este ejemplo: "3"
+
+//length en caso de STRING suma caracteres, es decir cuenta todos los caracteres que tiene x palabra, y si se utiliza en array como en el caso de arriba te devuelve todos los elementos del array, es decir cuantos elementos hay en ese mismo array.
+
+//NOTA: Generalmente se utiliza el CICLO FOR para recorrer arreglos y es lo mas probable que se utilice.
+
+// let numeros = [3, 6, 9, 12, 15, 18];
+
+//si quiero cambiar elementos del array desde fuera puedo hacerlo de la siguiente manera.
+
+// numeros[1] = 24; //marco la posicion deseada que quiero cambiar y le asigno el valor que quiero.
+
+// for (let i = 0; i < numeros.length; i += 1) {
+//la variable i SIEMPRE se inicia desde 0 en caso de ARRAYS.
+//   console.log(numeros[i]);
+// }
+
+// ARRAYS DE OBJETOS
+
+// let productos = [
+//   {
+//     nombre: "Samsung",
+//     precio: 14900,
+//     stock: 17,
+//   },
+//   {
+//     nombre: "Iphone",
+//     precio: 16000,
+//     stock: 5,
+//   },
+//   {
+//     nombre: "Huawei",
+//     precio: 7600,
+//     stock: 32,
+//   },
+// ];
+
+//creo una funcion para calcular las ganancias del stock con el precio para ver los resultados obtenidos de las ventas.
+
+// let calcStock = () => {
+//   let valorTotal = 0;
+
+//   for (let i = 0; i < productos.length; i += 1) {
+//     valorTotal += productos[i].precio * productos[i].stock; // sumo el resultado de la multiplicacion de precio con stock y lo guardo en la variable
+//   }
+//   return valorTotal;
+// };
+
+// let calcStockProductos = calcStock();
+
+// for (let i = 0; i < productos.length; i += 1) {
+//   console.log(productos[i]);
+//   console.log(`El valor total obtenido es de ${calcStockProductos}`);
+// }
+
+// for (let i = 0; i < productos.length; i += 1) {
+//   console.log(productos[i].nombre);
+//   console.log("//////////////////");
+//   console.log(productos[i]);
+// }
+
+//METODOS
+
+// PUSH
+
+// -> Push() es un metodo que hace que a un arreglo agregarle un dato o valor adicional en caso de no poder acceder al arreglo de forma manual, ejemplo: productos.push("hola")
+
+// INCLUDES
+
+// -> Includes() devuelve un valor true o false (booleano) y se utiliza para consultar si un dato existe en un arreglo. Ejemplo: productos.includes("motorola") me devuelve false, ya que motorola no se encuentra en mi arreglo.
+
+// POP
+
+// -> El Pop() corta el ultimo elemento del array.
+
+//EJEMPLO SIMULADOR DE AGREGAR ITEMS A UN ARRAY
+
+// let cel = [
+//   {
+//     nombre: "Samsung",
+//     precio: 14999,
+//     descripcion: "Samsung a54",
+//     stock: 6,
+//   },
+//   {
+//     nombre: "Iphone",
+//     precio: 16500,
+//     descripcion: "Iphone 7",
+//     stock: 2,
+//   },
+// ];
+
+// class Celulares {
+//   constructor(nombre, precio, descripcion, stock) {
+//     this.nombre = nombre;
+//     this.precio = precio;
+//     this.desc = descripcion;
+//     this.stock = stock;
+//   }
+// }
+
+// const agregarCelus = () => {
+//   let nombre = prompt("Ingrese el nombre o marca");
+//   let precio = Number(prompt("Ingrese el precio"));
+//   let descripcion = prompt("Ingrese la descripcion del celular");
+//   let stock = Number(prompt("Ingrese el Stock del celular"));
+
+//   let telefono = new Celulares(nombre, precio, descripcion, stock);
+
+//   cel.push(telefono); //agrego mas telefonos con los datos ingresados en el prompt
+// };
+
+// let iniciar = confirm("¿Desea agregar un telefono?");
+
+// while (iniciar) {
+//   agregarCelus();
+//   iniciar = confirm("¿Desea agregar otro telefono?");
+// }
+
+// console.log(cel);
+
+//FUNCIONES DE ORDEN SUPERIOR
+
+//creo un array de objetos (frutas)
+const productos = [
+  { id: 1, nombre: "manzana", stock: 10 },
+  { id: 2, nombre: "pera", stock: 5 },
+  { id: 3, nombre: "banana", stock: 15 },
+  { id: 4, nombre: "uva", stock: 8 },
+  { id: 5, nombre: "naranja", stock: 2 },
+  { id: 6, nombre: "kiwi", stock: 4 },
+  { id: 7, nombre: "frutilla", stock: 7 },
+];
+
+// creo una funcion que encuentre objetos por id
+
+const encontrar = (identificador) => {
+  for (let i = 0; i < productos.length; i += 1) {
+    if (productos[i].id === identificador) {
+      return productos[i];
+    }
+  }
+
+  return false;
+};
+
+let encontrado = encontrar(6);
+console.log(encontrado);
+
+const encontrarYSumar = (iden) => {
+  let sum = encontrar(iden);
+  sum += 10;
+};
+
+encontrarYSumar(6);
+
+console.log(productos);
+
+// Filtrar productos que tengan stock mayor que 5 y devolver
+// un array con esos productos
+
+const filtroProductos = (array) => {
+  let nuevoarray = [];
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i].stock > 5) {
+      nuevoarray.push(array[i]);
+    }
+  }
+  return nuevoarray;
+};
+
+console.log(filtroProductos(productos));
+
+// Funciones que retornan una funcion => son las funciones de orden superior
+// Funcion que reciba como argumento otra funcion
+
+const saludar = (nombre, otraFuncion) => {
+  console.log("hola " + nombre);
+  terminarSaludo(otraFuncion);
+};
+
+const terminarSaludo = () => {
+  console.log("Adios.");
+};
+
+saludar("Aurora", terminarSaludo);
+
+const items = [
+  { id: 1, nombre: "manzana", stock: 10 },
+  { id: 2, nombre: "pera", stock: 5 },
+  { id: 3, nombre: "banana", stock: 15 },
+  { id: 4, nombre: "uva", stock: 8 },
+  { id: 5, nombre: "naranja", stock: 2 },
+  { id: 6, nombre: "kiwi", stock: 4 },
+  { id: 7, nombre: "frutilla", stock: 7 },
+];
+
+// metodos arrays --> iteran el array
+// find -> siempre devuelve el elemento o undefined (siempre el primer elemento)
+// Retornar una condición
+// en Find el primer parametro (x) es el elemento del array y el segundo parametro es la posición del elemento.
+
+let itemEncontrado = items.find((elemento, i) => {
+  console.log(`el elemento ${elemento.nombre} esta en la posición ${i}`);
+});
+
+// metodo FILTER ---> siempre devuelve un NUEVO ARRAY
+// SIEMPRE retornar un booleano
+
+let a = items.filter((elemento) => {
+    return elemento.stock > 5;
+});
+
+console.log(a);
+
+// map ---> recorre un array y devuelve uno nuevo
+// SIEMPRE va a ser de la misma logitud
+// retornar en cada vuelta lo que quiero agregar
+
+let arrayMapeado = items.map((elemento)=>{
+    return {id: elemento.id, nombre: elemento.nombre, precio: 100}
+})
+
+console.log(arrayMapeado);
