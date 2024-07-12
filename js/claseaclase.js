@@ -504,103 +504,166 @@
 //FUNCIONES DE ORDEN SUPERIOR
 
 //creo un array de objetos (frutas)
-const productos = [
-  { id: 1, nombre: "manzana", stock: 10 },
-  { id: 2, nombre: "pera", stock: 5 },
-  { id: 3, nombre: "banana", stock: 15 },
-  { id: 4, nombre: "uva", stock: 8 },
-  { id: 5, nombre: "naranja", stock: 2 },
-  { id: 6, nombre: "kiwi", stock: 4 },
-  { id: 7, nombre: "frutilla", stock: 7 },
-];
+// const productos = [
+//   { id: 1, nombre: "manzana", stock: 10 },
+//   { id: 2, nombre: "pera", stock: 5 },
+//   { id: 3, nombre: "banana", stock: 15 },
+//   { id: 4, nombre: "uva", stock: 8 },
+//   { id: 5, nombre: "naranja", stock: 2 },
+//   { id: 6, nombre: "kiwi", stock: 4 },
+//   { id: 7, nombre: "frutilla", stock: 7 },
+// ];
 
 // creo una funcion que encuentre objetos por id
 
-const encontrar = (identificador) => {
-  for (let i = 0; i < productos.length; i += 1) {
-    if (productos[i].id === identificador) {
-      return productos[i];
-    }
-  }
+// const encontrar = (identificador) => {
+//   for (let i = 0; i < productos.length; i += 1) {
+//     if (productos[i].id === identificador) {
+//       return productos[i];
+//     }
+//   }
 
-  return false;
-};
+//   return false;
+// };
 
-let encontrado = encontrar(6);
-console.log(encontrado);
+// let encontrado = encontrar(6);
+// console.log(encontrado);
 
-const encontrarYSumar = (iden) => {
-  let sum = encontrar(iden);
-  sum += 10;
-};
+// const encontrarYSumar = (iden) => {
+//   let sum = encontrar(iden);
+//   sum += 10;
+// };
 
-encontrarYSumar(6);
+// encontrarYSumar(6);
 
-console.log(productos);
+// console.log(productos);
 
 // Filtrar productos que tengan stock mayor que 5 y devolver
 // un array con esos productos
 
-const filtroProductos = (array) => {
-  let nuevoarray = [];
-  for (let i = 0; i < array.length; i += 1) {
-    if (array[i].stock > 5) {
-      nuevoarray.push(array[i]);
-    }
-  }
-  return nuevoarray;
-};
+// const filtroProductos = (array) => {
+//   let nuevoarray = [];
+//   for (let i = 0; i < array.length; i += 1) {
+//     if (array[i].stock > 5) {
+//       nuevoarray.push(array[i]);
+//     }
+//   }
+//   return nuevoarray;
+// };
 
-console.log(filtroProductos(productos));
+// console.log(filtroProductos(productos));
 
 // Funciones que retornan una funcion => son las funciones de orden superior
 // Funcion que reciba como argumento otra funcion
 
-const saludar = (nombre, otraFuncion) => {
-  console.log("hola " + nombre);
-  terminarSaludo(otraFuncion);
-};
+// const saludar = (nombre, otraFuncion) => {
+//   console.log("hola " + nombre);
+//   terminarSaludo(otraFuncion);
+// };
 
-const terminarSaludo = () => {
-  console.log("Adios.");
-};
+// const terminarSaludo = () => {
+//   console.log("Adios.");
+// };
 
-saludar("Aurora", terminarSaludo);
+// saludar("Aurora", terminarSaludo);
 
-const items = [
-  { id: 1, nombre: "manzana", stock: 10 },
-  { id: 2, nombre: "pera", stock: 5 },
-  { id: 3, nombre: "banana", stock: 15 },
-  { id: 4, nombre: "uva", stock: 8 },
-  { id: 5, nombre: "naranja", stock: 2 },
-  { id: 6, nombre: "kiwi", stock: 4 },
-  { id: 7, nombre: "frutilla", stock: 7 },
-];
+// const items = [
+//   { id: 1, nombre: "manzana", stock: 10 },
+//   { id: 2, nombre: "pera", stock: 5 },
+//   { id: 3, nombre: "banana", stock: 15 },
+//   { id: 4, nombre: "uva", stock: 8 },
+//   { id: 5, nombre: "naranja", stock: 2 },
+//   { id: 6, nombre: "kiwi", stock: 4 },
+//   { id: 7, nombre: "frutilla", stock: 7 },
+// ];
 
 // metodos arrays --> iteran el array
 // find -> siempre devuelve el elemento o undefined (siempre el primer elemento)
 // Retornar una condición
 // en Find el primer parametro (x) es el elemento del array y el segundo parametro es la posición del elemento.
 
-let itemEncontrado = items.find((elemento, i) => {
-  console.log(`el elemento ${elemento.nombre} esta en la posición ${i}`);
-});
+// let itemEncontrado = items.find((elemento, i) => {
+//   console.log(`el elemento ${elemento.nombre} esta en la posición ${i}`);
+// });
 
 // metodo FILTER ---> siempre devuelve un NUEVO ARRAY
 // SIEMPRE retornar un booleano
 
-let a = items.filter((elemento) => {
-    return elemento.stock > 5;
-});
+// let a = items.filter((elemento) => {
+//     return elemento.stock > 5;
+// });
 
-console.log(a);
+// console.log(a);
 
 // map ---> recorre un array y devuelve uno nuevo
 // SIEMPRE va a ser de la misma logitud
 // retornar en cada vuelta lo que quiero agregar
 
-let arrayMapeado = items.map((elemento)=>{
-    return {id: elemento.id, nombre: elemento.nombre, precio: 100}
-})
+// let arrayMapeado = items.map((elemento)=>{
+//     return {id: elemento.id, nombre: elemento.nombre, precio: 100}
+// })
 
-console.log(arrayMapeado);
+// console.log(arrayMapeado);
+
+// FUNCIONES DE ORDEN SUPERIOR 2
+
+// Metodo FOREACH
+// no retorna nada
+
+// let usuarios = [
+//   {
+//     nombre: "carlos",
+//     telefono: "374612",
+//   },
+//   {
+//     nombre: "juan",
+//     telefono: "5746252",
+//   },
+//   {
+//     nombre: "trevor",
+//     telefono: "174612",
+//   },
+//   {
+//     nombre: "arturo",
+//     telefono: "765431",
+//   },
+// ];
+
+//slice corta las letras de un string de izq a derecha
+//chartAt() marca la letra que yo quiera de un string dentro del () del metodo
+//toUpperCase() coloca todo el string a mayuscula
+
+// let arrayForEach = usuarios.forEach((usuario, i) => {
+//   usuario.id = i + 1;
+//   usuario.nombre =
+//     usuario.nombre.charAt(0).toUpperCase() + usuario.nombre.slice(1);
+// });
+
+// console.log(usuarios);
+
+//some() devuelve un booleano, devuelve true si la condicion es verdadera
+
+//every devuelve un booleano, devuelve true si TODOS cumplen la condicion.
+// let telefonoUsuario = usuarios.every((usuario) =>
+//   usuario.telefono.includes("7")
+// );
+
+// console.log(telefonoUsuario);
+
+
+//OBJETO DATE
+
+// let hoy = new Date()
+// //obtengo el dia
+// console.log(hoy.getDay()); 
+// //obtengo el mes
+// console.log(hoy.getMonth()); 
+// //obtengo el año
+// console.log(hoy.getFullYear()); 
+//  //obtengo el dia del mes
+// console.log(hoy.getDate());
+// //obtengo los minutos
+// console.log(hoy.getMinutes()); 
+// //obtengo los minutos
+// console.log(hoy.getSeconds()); 
+
