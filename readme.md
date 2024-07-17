@@ -1,16 +1,16 @@
 # Proyecto JS Coder
 
+## Segunda Entrega ⌛
+
+- Se le implementó al código Constructores, clases, funciones de orden superior y arrays. Se espera realizar nuevos ajustes en camino a la ultima entrega después de aprender DOM.
+
+- El Diseño CSS sigue sin ser funcional.
+
 ## Primer entrega ✅
 
 - El proyecto consta de una calculadora de Interés Simple e Interés Compuesto, y también posee el Monto de ambos intereses, en futuras entregas se espera mejorar este sistema al igual de la precisión de los resultados obtenidos.
 
 - El Diseño CSS como la estructura HTML **NO** es funcional.
-
-## Segunda Entrega
-
-- Se le implementó al código Constructores, clases, funciones de orden superior y arrays. Se espera realizar nuevos ajustes en camino a la ultima entrega después de aprender DOM.
-
-- El Diseño CSS sigue sin ser funcional.
 
 ## A tener en cuenta:
 
