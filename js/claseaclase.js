@@ -667,3 +667,99 @@
 // //obtengo los minutos
 // console.log(hoy.getSeconds()); 
 
+//NOTA - DOM
+
+//TRAER OBJETOS DEL DOM A JS
+
+// ID
+// let id = document.getElementById("form");
+// console.log(id);
+
+// CLASE
+// let clase = document.getElementsByClassName(".cont-form");
+// console.log(clase);
+
+// QUERYSELECTOR -> trae cualquier elemento (clase, id, etc)
+// let query = document.querySelector("#resultado");
+// console.log(query);
+
+//INNER TEXT --> Inyectas codigo HTML desde JS
+
+// let variableCont = document.querySelector(".cont-form");
+// variableCont.innerHTML = "<h1>AAAAAA</h1>";
+
+// CREAR ELEMENTOS EN EL DOM
+// let texto = document.createElement("div");
+// texto.innerHTML = "Hola, lol";
+
+// document.body.append(texto); // ---> Muestra e inyecta en el body el elemento creado (texto)
+
+// PRUEBA PRACTICA APP
+
+// const products = [
+
+//   {
+//     titulo: "PC",
+//     descripcion: "pc gamer",
+//     precio: 10500,
+//   },
+//   {
+//     titulo: "Laptop",
+//     descripcion: "Laptop gamer",
+//     precio: 13500,
+//   },
+//   {
+//     titulo: "Laptop HP",
+//     descripcion: "Laptop Estudio",
+//     precio: 9500,
+//   },
+//   {
+//     titulo: "PC Escritorio",
+//     descripcion: "PC Trabajo",
+//     precio: 11200,
+//   },
+//   {
+//     titulo: "Laptop MSI",
+//     descripcion: "Laptop gamer MSI",
+//     precio: 15800,
+//   },
+// ];
+
+// let containerProduct = document.createElement("div");
+// document.body.append(containerProduct);
+
+// const productCard = document.createElement("div");
+// productCard.innerHTML = `<h2>${products[0].titulo}</h2> <h3>${products[0].descripcion}</h3> <h4>${products[0].precio}</h4> <img src ="" alt = "">`;
+
+// productCard.className = "card";
+
+// containerProduct.appendChild(productCard);
+
+//creo un FOR para recorrer todos los elementos del array products y mostrarlos todos.
+// for (let i = 0; i < products.length; i++) {
+//   const productCard = document.createElement("div");
+//   productCard.innerHTML = `<h2>${products[i].titulo}</h2> <h3>${products[i].descripcion}</h3> <h4>${products[i].precio}</h4> <img src ="" alt = "">`;
+//   productCard.className = "card";
+//   containerProduct.appendChild(productCard);
+// }
+
+// O puedo crear un metodo FOREACH que seria mas sencillo:
+
+// products.forEach((elemento) => {
+//   const productCard = document.createElement("div");
+//   productCard.innerHTML = `<h2>${elemento.titulo}</h2> <h3>${elemento.descripcion}</h3> <h4>${elemento.precio}</h4> <img src ="" alt = "">`;
+//   productCard.className = "card";
+//   containerProduct.appendChild(productCard);
+// });
+
+// NOTA --> Para que quede claro: innerText = Modifica el texto del id o clase seleccionada.
+// innerHTML --> Nos ayuda a modificar DIVS, agregar otros divs o propiedades html a un contenedor, etc.
+
+// let traigoTitulo = document.querySelector("#titulo");
+// traigoTitulo.innerText = "HOLA";
+
+// let contenido = document.createElement("section");
+// document.body.append(contenido);
+
+// let contenido2 = document.createElement("div");
+// contenido.appendChild(contenido2);

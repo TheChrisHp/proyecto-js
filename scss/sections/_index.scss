@@ -3,44 +3,68 @@
   background-color: #202020;
 }
 // HEADER
+.header-first {
+  display: flex;
+  justify-content: space-around;
+  background-color: #000;
+  padding: 5rem;
+}
+
 .header-index {
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: #000;
-  padding: 3rem;
+  flex-direction: column;
+  align-items: start;
+
+  h3 {
+    color: $colorBase;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  p {
+    width: 620px;
+    font-size: 1.2rem;
+    color: $colorBase;
+  }
+
+  a {
+    color: #202020;
+    background-color: rgb(242, 255, 0);
+    border-radius: 12px;
+    border: solid 1px grey;
+    font-size: 1.6rem;
+    padding: 0.3rem;
+    width: 200px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+
+  .img-header {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+  }
 }
 
 .header-index h1 {
-  font-size: 3rem;
-  color: #dbdbdb;
+  width: 550px;
+  font-size: 4.2rem;
+  color: $colorBase;
 }
 
 // MAIN
-
-.titulo-i-simple {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-
-  h2 {
-    font-size: 2.5rem;
-    color: #dbdbdb;
-  }
-  p {
-    font-size: 1.2rem;
-    color: #dbdbdb;
+main{
+  h1{
+    margin-top: 4rem;
+    color: $colorBase;
+    font-size: 4rem;
+    margin-left: 2rem;
+    text-align: center;
   }
 }
-
-.cont-main p {
-  font-size: 1.2rem;
-  // font-family: serif;
-  color: #fffc5f;
-}
-
 .cont-form {
   margin-top: 20px;
   display: flex;
@@ -48,12 +72,10 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+  padding: 2rem;
 }
 
 .cont-form {
-  .cont-input {
-    margin-top: -30px;
-  }
   input {
     margin: 17px;
     width: 270px;
@@ -65,42 +87,65 @@
     font-size: 1rem;
   }
 
+
   form {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    width: 900px;
+    padding: 2rem;
 
     input {
       margin: 17px;
-      width: 270px;
-      height: 32px;
+      width: 300px;
+      height: 40px;
       text-align: center;
       border-radius: 4px;
       border-style: none;
       border: solid 1px #000;
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
 
     .cont-calcular {
       display: flex;
       justify-content: center;
+      flex-direction: column;
       align-items: center;
+      padding: 1.1rem;
 
       button {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        background-color: aliceblue;
         width: 132px;
         border-style: none;
-        border-radius: 4px;
+        border-radius: 8px;
         box-shadow: 6px 6px 6px #000;
+        padding: 0.2rem;
 
         &:focus {
           transform: scale(96%);
         }
+      }
+
+      input{
+        width: 250px;
       }
     }
   }
 }
 .cont-form form button {
   cursor: pointer;
+}
+
+//JS
+.card {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  color: #dbdbdb;
+  border-radius: 4px;
+  border: solid 2px;
+  background-color: rgb(161, 0, 0);
 }

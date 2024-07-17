@@ -104,7 +104,7 @@ const agregarInversionSimpleArray = (
 //creo una funcion para mostrar el array de inversiones luego de almacenados los datos
 const mostrarInversiones = () => {
   inversiones.forEach((inversion, i) => {
-    console.log(`Inversión ${i + 1}:`);
+    console.log(`Numero de Inversión: ${i}`);
     console.log(`Tipo: ${inversion.tipo}`);
     console.log(`Capital: ${inversion.capital}`);
     console.log(`Tiempo: ${inversion.tiempo} meses`);
@@ -112,7 +112,7 @@ const mostrarInversiones = () => {
     console.log(`Tasa: ${inversion.tasa}`);
     console.log(`Interés: ${inversion.interes}`);
     console.log(`Monto: ${inversion.monto}`);
-    console.log("----------------------------------");
+    console.log("--------------------------------");
   });
 };
 
@@ -129,9 +129,7 @@ while (intentos) {
       prompt("Ingrese su Tasa de Interés (Ej: Si es 40% usar 0.4)")
     ); //suponemos que el usuario lo ingresa con 0,4 en caso de que sea 40%
     let tiempoTasa = Number(
-      prompt(
-        "Tiempo de su Tasa (En Meses ej: Trismestral, Anual, Bimestral, etc)"
-      )
+      prompt("Tiempo de su Tasa (En Meses ej: Trismestral, Anual, etc)")
     );
     let tiempo = Number(prompt("Ingrese el Tiempo (Ej: 12 para 1 año)")); //Tiempo pensado en meses (1 año = 12 meses, 2 años = 24 meses y así...)
 
@@ -146,6 +144,7 @@ while (intentos) {
         mensajeF();
       }
     }
+    //NOTA ===> PARTE INTERES SIMPLE
   } else if (tipo.toLowerCase() === "simple") {
     let capital = Number(prompt("Ingrese el capital inicial"));
     let tasa = Number(

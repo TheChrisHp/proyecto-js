@@ -3,8 +3,9 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: solid 1px;
+    // border: solid 5px #f00000;
     padding: 20px;
+    background-color: #000;
   }
   
   nav ul {
@@ -16,9 +17,10 @@ nav {
   nav ul a {
     text-decoration: none;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   
   nav img{
+    margin-left: 8rem;
     width: 200px
 }
