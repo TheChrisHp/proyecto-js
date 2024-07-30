@@ -1,0 +1,86 @@
+.bg-body {
+    background: rgb(63, 94, 251);
+    background: linear-gradient(
+      90deg,
+      rgba(63, 94, 251, 1) 22%,
+      rgba(70, 165, 252, 1) 78%
+    );
+  }
+  
+  .cont-app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+  }
+  
+  .cont-weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 700px;
+    height: 700px;
+    border: solid 3px rgb(27, 27, 27);
+    border-radius: 12px ;
+    box-shadow: 6px 4px 2px #000;
+  }
+  
+  #titulo{
+    font-size: 2.6rem;
+    font-weight: 600;
+  }
+  
+  #ubicacion-nombre{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 600;
+  }
+  
+  .cont-stats {
+    /* border: solid 1px #f90000; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px;
+    gap: 20px;
+  }
+  
+  #form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 1rem;
+  }
+  
+  #form input {
+    width: 320px;
+    height: 32px;
+    font-size: 1.4rem;
+  }
+  
+  #form select {
+    width: 320px;
+    height: 32px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  #form button {
+    margin-top: 20px;
+    width: 200px;
+    height: 32px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  /* .stats {
+    border: solid 3px #000;
+    width: 200px;
+  } */

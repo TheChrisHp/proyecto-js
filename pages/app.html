@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+    <body class="bg-body">
+        <section class="cont-app">
+            <div class="cont-weather">
+                <div id="ubicacion-nombre"></div>
+                <div class="cont-stats">
+                    <h1 id="titulo">Bienvenido a Weather APP</h1>
+                    <div class="cont-img"></div>
+                    <div class="stats">
+                    </div>
+                </div>
+                <form id="form" action="">
+                    <select name="opciones-paises" id="pais">
+                        <option value="">Seleccione un País</option>
+                        <option value="UY">Uruguay</option>
+                        <option value="AR">Argentina</option>
+                        <option value="BR">Brasil</option>
+                        <option value="CO">Colombia</option>
+                        <option value="PE">Perú</option>
+                        <option value="ES">España</option>
+                        <option value="PY">Paraguay</option>
+                        <option value="VE">Venezuela</option>
+                    </select>
+                    <input type="text" name="ciudad" id="ciudad">
+                    <button>Buscar</button>
+                </form>
+            </div>
+        </section>
+    <script src="../js/main.js"></script>
+</body>
+</html>

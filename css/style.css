@@ -71,76 +71,84 @@ nav img {
   font-size: 4.2rem;
   color: #dbdbdb; }
 
-main h1 {
-  margin-top: 4rem;
-  color: #dbdbdb;
-  font-size: 4rem;
-  margin-left: 2rem;
-  text-align: center; }
+.container-products {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap; }
+  .container-products .tarjetas {
+    background-color: #dbdbdb;
+    border: solid 4px #000;
+    width: 500px; }
 
-.cont-form {
-  margin-top: 20px;
+.bg-body {
+  background: #3f5efb;
+  background: linear-gradient(90deg, #3f5efb 22%, #46a5fc 78%); }
+
+.cont-app {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 2rem; }
+  height: 800px; }
 
-.cont-form input {
-  margin: 17px;
-  width: 270px;
-  height: 32px;
+.cont-weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 700px;
+  height: 700px;
+  border: solid 3px #1b1b1b;
+  border-radius: 12px;
+  box-shadow: 6px 4px 2px #000; }
+
+#titulo {
+  font-size: 2.6rem;
+  font-weight: 600; }
+
+#ubicacion-nombre {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
   text-align: center;
-  border-radius: 4px;
-  border-style: none;
-  border: solid 1px #000;
-  font-size: 1rem; }
+  font-size: 4rem;
+  font-weight: 600; }
 
-.cont-form form {
+.cont-stats {
+  /* border: solid 1px #f90000; */
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  width: 900px;
-  padding: 2rem; }
-  .cont-form form input {
-    margin: 17px;
-    width: 300px;
-    height: 40px;
-    text-align: center;
-    border-radius: 4px;
-    border-style: none;
-    border: solid 1px #000;
-    font-size: 1.2rem; }
-  .cont-form form .cont-calcular {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.1rem; }
-    .cont-form form .cont-calcular button {
-      font-size: 1.4rem;
-      font-weight: 500;
-      background-color: aliceblue;
-      width: 132px;
-      border-style: none;
-      border-radius: 8px;
-      box-shadow: 6px 6px 6px #000;
-      padding: 0.2rem; }
-      .cont-form form .cont-calcular button:focus {
-        transform: scale(96%); }
-    .cont-form form .cont-calcular input {
-      width: 250px; }
+  padding: 17px;
+  gap: 20px; }
 
-.cont-form form button {
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 1rem; }
+
+#form input {
+  width: 320px;
+  height: 32px;
+  font-size: 1.4rem; }
+
+#form select {
+  width: 320px;
+  height: 32px;
+  font-size: 1rem;
   cursor: pointer; }
 
-.card {
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  color: #dbdbdb;
-  border-radius: 4px;
-  border: solid 2px;
-  background-color: #a10000; }
+#form button {
+  margin-top: 20px;
+  width: 200px;
+  height: 32px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer; }
+
+/* .stats {
+    border: solid 3px #000;
+    width: 200px;
+  } */

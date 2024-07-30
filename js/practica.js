@@ -299,3 +299,103 @@
 //     resultado.value = `El resultado es: ${calc}`;
 //   });
 // }
+
+// let input1 = document.getElementById("capital");
+// let input2 = document.getElementById("tasaT");
+// let btn = document.getElementById("calc");
+// let resultado = document.getElementById("resultado");
+
+// if (btn) {
+//   btn.addEventListener("click", () => {
+//     let inputvalue = Number(input1.value);
+//     let input2value = Number(input2.value);
+//     let result = inputvalue + input2value;
+//     resultado.value = `El resultado es: ${result}`;
+//   });
+// }
+
+// const productosTec = [
+//   {
+//     nombre: "Laptop Dell XPS 13",
+//     precio: 1200,
+//     stock: 15,
+//     descripcion:
+//       "Ultrabook de 13 pulgadas con procesador Intel i7 y 16GB de RAM",
+//   },
+//   {
+//     nombre: "Smartphone Samsung Galaxy S21",
+//     precio: 999,
+//     stock: 25,
+//     descripcion:
+//       "Smartphone con pantalla AMOLED de 6.2 pulgadas y cámara de 64MP",
+//   },
+//   {
+//     nombre: "Tablet Apple iPad Pro",
+//     precio: 1100,
+//     stock: 20,
+//     descripcion:
+//       "Tablet de 12.9 pulgadas con chip M1 y 256GB de almacenamiento",
+//   },
+//   {
+//     nombre: "Smartwatch Apple Watch Series 7",
+//     precio: 399,
+//     stock: 30,
+//     descripcion: "Smartwatch con pantalla Retina y sensores de salud avanzados",
+//   },
+//   {
+//     nombre: "Auriculares Sony WH-1000XM4",
+//     precio: 349,
+//     stock: 40,
+//     descripcion:
+//       "Auriculares inalámbricos con cancelación de ruido líder en la industria",
+//   },
+//   {
+//     nombre: "Consola PlayStation 5",
+//     precio: 499,
+//     stock: 10,
+//     descripcion:
+//       "Consola de videojuegos de próxima generación con gráficos 4K y SSD ultrarrápido",
+//   },
+//   {
+//     nombre: "Monitor LG UltraWide 34''",
+//     precio: 799,
+//     stock: 12,
+//     descripcion: "Monitor curvo ultra ancho de 34 pulgadas con resolución 5K",
+//   },
+//   {
+//     nombre: "Cámara Canon EOS R5",
+//     precio: 3899,
+//     stock: 8,
+//     descripcion:
+//       "Cámara sin espejo con sensor de fotograma completo de 45MP y grabación de video 8K",
+//   },
+//   {
+//     nombre: "Router TP-Link Archer AX6000",
+//     precio: 300,
+//     stock: 50,
+//     descripcion:
+//       "Router Wi-Fi 6 de alta velocidad con 8 puertos Ethernet y tecnología OFDMA",
+//   },
+//   {
+//     nombre: "Disco Duro Externo Seagate 2TB",
+//     precio: 89,
+//     stock: 60,
+//     descripcion:
+//       "Disco duro externo portátil con conexión USB 3.0 y 2TB de almacenamiento",
+//   },
+// ];
+
+// let div = document.createElement("div");
+// div.className = "content-card";
+// document.body.append(div);
+
+// let allProducts = productosTec.forEach((producto) => {
+//   let contenido = document.createElement("div");
+//   contenido.innerHTML = `
+//     <h1>${producto.nombre}</h1>
+//     <h3>${producto.descripcion}</h3>
+//     <h2>Precio: $${producto.precio}</h2>
+//     `;
+//   contenido.className = "card";
+//   div.appendChild(contenido);
+// });

@@ -650,22 +650,21 @@
 
 // console.log(telefonoUsuario);
 
-
 //OBJETO DATE
 
 // let hoy = new Date()
 // //obtengo el dia
-// console.log(hoy.getDay()); 
+// console.log(hoy.getDay());
 // //obtengo el mes
-// console.log(hoy.getMonth()); 
+// console.log(hoy.getMonth());
 // //obtengo el año
-// console.log(hoy.getFullYear()); 
+// console.log(hoy.getFullYear());
 //  //obtengo el dia del mes
 // console.log(hoy.getDate());
 // //obtengo los minutos
-// console.log(hoy.getMinutes()); 
+// console.log(hoy.getMinutes());
 // //obtengo los minutos
-// console.log(hoy.getSeconds()); 
+// console.log(hoy.getSeconds());
 
 //NOTA - DOM
 
@@ -763,3 +762,137 @@
 
 // let contenido2 = document.createElement("div");
 // contenido.appendChild(contenido2);
+
+// EVENTOS
+
+let btnCalcular = document.getElementById("calc");
+let contador = document.getElementById("contador");
+// let num = 0;
+
+//SUMA NUMEROS AL CLICKEAR
+// btnCalcular.addEventListener("click", () => {
+//   let pares = num * 2;
+//   contador.innerText = pares;
+// });
+
+// AL PASAR EL MOUSE MUESTRA MENSAJE
+// contador.addEventListener("mouseenter", () => {
+//   console.log("aasdasdasd");
+// });
+
+// INPUTS
+// let tiempo = document.getElementById("tiempo");
+//MENSAJE AL UTILIZAR MAYUS
+// tiempo.addEventListener("keyup", () => {
+//   console.log("Uso mayus");
+// });
+
+//EVENTO QUE CAPTURA AL TECLEAR EN EL INPUT
+// tiempo.addEventListener("keypress", (e) =>{
+//     console.log("tecleando");
+// } )
+
+// let formulario = document.getElementById("form");
+
+//EVENTO PARA EL BOTON SUBMIT DEL FORMULARIO
+// EVENT.PREVENTDEFAULT() SE UTILIZA PARA EVITAR
+// QUE AL CLICKEAR EL BOTON SE REFRESQUE LA PAG
+
+// formulario.addEventListener("submit", (event) => {
+//   event.preventDefault()
+//   console.log("enviando form");
+// });
+
+//PRUEBA PRACTICA
+// let nombre = document.getElementById("nombre");
+// let descripcion = document.getElementById("descripcion");
+// let precio = document.getElementById("precio");
+// let form = document.getElementById("form");
+
+// // VARIABLES PARA GUARDAR VALUES DE LOS INPUTS
+// let guardoNombre = "";
+// let guardoDesc = "";
+// let guardoPrecio = "";
+
+// //Guardo en un Array
+// let variablesGuardadas = [];
+
+// let contenedorProducto = document.getElementById("container-products");
+
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   let producto = {
+//     nombre: guardoNombre,
+//     descripcion: guardoDesc,
+//     precio: Number(guardoPrecio),
+//   };
+//   variablesGuardadas.push(producto);
+//   let tarjetas = document.createElement("div");
+//   tarjetas.innerHTML = `<div class="tarjetas"><h1>Nombre: ${guardoNombre}</h1><h2>Descripcion: ${guardoDesc}</h2><h3>Precio: $${guardoPrecio}</h3></div>`;
+//   contenedorProducto.appendChild(tarjetas);
+// });
+
+// // INPUTS GUARDAR INFO EN VARIABLE
+// nombre.addEventListener("input", () => {
+//   guardoNombre = nombre.value;
+// });
+
+// descripcion.addEventListener("input", () => {
+//   guardoDesc = descripcion.value;
+// });
+
+// precio.addEventListener("input", () => {
+//   guardoPrecio = precio.value;
+// });
+
+// REPASO PRUEBA PRACTICA
+
+// let nombre = document.getElementById("nombre");
+// let descripcion = document.getElementById("descripcion");
+// let precio = document.getElementById("precio");
+// //FORM
+// let form = document.getElementById("form");
+// //BTN REMOVER DATOS
+// let btn = document.getElementById("btnRemover");
+
+// // GUARDO EN VARIABLES LOS DATOS INGRESADOS EN EL INPUT
+// let gNombre = "";
+// let gDescripcion = "";
+// let gPrecio = 0;
+
+// // EVENTOS A LOS INPUTS
+// nombre.addEventListener("input", () => {
+//   gNombre = nombre.value;
+// });
+// descripcion.addEventListener("input", () => {
+//   gDescripcion = descripcion.value;
+// });
+// precio.addEventListener("input", () => {
+//   gPrecio = precio.value;
+// });
+
+// // CREO ARRAY PARA GUARDAR DATOS DE LOS INPUTS
+// let array = [];
+
+// // TRAIGO CONTAINER PRODUCTS PARA USAR DE PADRE DE LAS TARJETAS
+// let containerTarjetas = document.getElementById("container-products");
+
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   let objetos = {
+//     nombre: gNombre,
+//     descripcion: gDescripcion,
+//     precio: Number(gPrecio),
+//   };
+//   array.push(objetos);
+//   let tarjetas = document.createElement("div");
+//   tarjetas.innerHTML = `<div class="tarjetas"><h1>Nombre:${gNombre}</h1><h2>Desc:${gDescripcion}</h2><h2>Precio:$${gPrecio}</h2></div>`;
+//   containerTarjetas.appendChild(tarjetas);
+// });
+
+// btn.addEventListener("click", () => {
+//   if (array.length > 0) {
+//     let remover = array.pop();
+//     containerTarjetas.removeChild(remover.elemento);
+//   }
+// });
