@@ -62,7 +62,7 @@ form.addEventListener("submit", (e) => {
       newWindow: true,
       close: true,
       gravity: "top", // `top` or `bottom`
-      position: "right", // `left`, `center` or `right`
+      position: "left", // `left`, `center` or `right`
       stopOnFocus: true, // Prevents dismissing of toast on hover
       style: {
         background: "linear-gradient(to right, #00b09b, #96c93d)",
@@ -331,11 +331,10 @@ const historialClimas = (array) => {
           <img style="width: 50px;" src="${imgHistorial.src}">
           <h3 style="color: #dbdbdbdb;font-weight:500;">${elemento.ciudad}</h3>
           <div style="display: flex; flex-direction:column; align-items:center;">
-            <p style="">${elemento.estadisticas.temperatura}°C</p>
+          <p style="">${elemento.estadisticas.temperatura}°C</p>
           </div>
         </div>
       </section>`;
-
       containerH.appendChild(contHistorial);
     }
   });
