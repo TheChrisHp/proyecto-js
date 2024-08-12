@@ -1,8 +1,21 @@
-# Proyecto JS Coder
+# Proyecto JS Coder (Weather App)
+
+## Actualización V. 0.0.2 🌤️
+
+- Implementación de Hora en tiempo real en base a el país o ciudad
+- Diseño estético mejorado (añadidos backgrounds nuevos)
+- Dependiendo del horario de la región cambia o no los íconos por Noche o Día
+- Los backgrounds cambian dependiendo si es Noche o Día
+- Nuevos paises agregados al Select
+- Agregado Historial para consultar los climas visitados (actualmente no se puede seleccionar uno del historial y consultarlo)
+- Diseño implementado cuando la APP esté vacía sin datos en el LS
+- Se eliminaron duplicaciones
+- Agregadas notas de descripción al pasar el cursor en los íconos de stats
+- Otras modificaciones
 
 ## Tercera Entrega ⌛
 
-#### Finalmente he decidido por optar por un proyecto diferente ya que una calculadora de Interes Simple y Compuesto puede ser algo *no* tan desafiante. Así que cambio la estructura de mi proyecto por un **Proyecto Weather APP** en base a los conocimientos adquiridos y otros vistos fuera de clase.
+#### Finalmente he decidido por optar por un proyecto diferente ya que una calculadora de Interes Simple y Compuesto puede ser algo _no_ tan desafiante. Así que cambio la estructura de mi proyecto por un **Proyecto Weather APP** en base a los conocimientos adquiridos y otros vistos fuera de clase.
 
 ## Segunda Entrega ✅
 

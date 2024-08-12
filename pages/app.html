@@ -1,39 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="../css/style.css">
+    <!-- alerta -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
 </head>
-    <body class="bg-body">
-        <section class="cont-app">
-            <div class="cont-weather">
-                <div id="ubicacion-nombre"></div>
-                <div class="cont-stats">
-                    <h1 id="titulo">Bienvenido a Weather APP</h1>
-                    <div class="cont-img"></div>
-                    <div class="stats">
-                    </div>
-                </div>
-                <form id="form" action="">
-                    <select name="opciones-paises" id="pais">
-                        <option value="">Seleccione un País</option>
-                        <option value="UY">Uruguay</option>
-                        <option value="AR">Argentina</option>
-                        <option value="BR">Brasil</option>
-                        <option value="CO">Colombia</option>
-                        <option value="PE">Perú</option>
-                        <option value="ES">España</option>
-                        <option value="PY">Paraguay</option>
-                        <option value="VE">Venezuela</option>
-                    </select>
-                    <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad">
-                    <button>Buscar</button>
-                </form>
+
+<body class="bg-body">
+    <div class="alertas"></div>
+    <section class="cont-app">
+        <div class="cont-weather">
+            <div id="ubicacion-nombre">
+                <h4 id="txt-Hora"></h4>
             </div>
-        </section>
+            <div class="cont-stats">
+                <div class="cont-titulo">
+                    <h1 id="titulo">Weather APP</h1>
+                    <img class="img-lupa" src="https://media-public.canva.com/iIgkk/MAFjgkiIgkk/1/tl.png" alt="img-lupa">
+                </div>
+                <div class="cont-img"></div>
+                <div class="stats">
+                </div>
+            </div>
+            <form id="form" action="">
+                <select name="opciones-paises" id="pais">
+                    <option value="">Seleccione un País</option>
+                    <option value="UY">Uruguay</option>
+                    <option value="AR">Argentina</option>
+                    <option value="JP">Japón</option>
+                    <option value="MX">México</option>
+                    <option value="BR">Brasil</option>
+                    <option value="EUA">Estados Unidos</option>
+                    <option value="CO">Colombia</option>
+                    <option value="PE">Perú</option>
+                    <option value="ES">España</option>
+                    <option value="PY">Paraguay</option>
+                    <option value="VE">Venezuela</option>
+                </select>
+                <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad">
+                <button>Buscar</button>
+            </form>
+        </div>
+        <div class="cont-historial">
+            <div class="msg-nohistorial">
+                <p>No hay un historial reciente</p>
+            </div>
+        </div>
+    </section>
+    <!-- luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.5.0/build/global/luxon.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="../js/main.js"></script>
 </body>
+
 </html>

@@ -85,7 +85,11 @@ nav a {
 .bg-body {
   background: #3f5efb;
   background: linear-gradient(90deg, #3f5efb 22%, #46a5fc 78%);
-  background: url("../resources/back-weather.webp");
+  background: linear-gradient(rgba(0, 0, 0, 0.379), rgba(0, 0, 0, 0.345)), url("https://res.cloudinary.com/dfnton7oq/image/upload/v1723351960/weather%20app/day_c0ldtt.jpg");
+  background-size: cover; }
+
+.bg-noche {
+  background: url("https://res.cloudinary.com/dfnton7oq/image/upload/v1723428052/weather%20app/night_fbdel6_i8biqv.jpg");
   background-size: cover; }
 
 .cont-app {
@@ -95,19 +99,29 @@ nav a {
   height: 800px; }
 
 .cont-weather {
-  backdrop-filter: blur(10px) contrast(78%);
+  backdrop-filter: blur(10px) contrast(48%);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   width: 700px;
   height: 700px;
-  border: solid 3px #1b1b1b;
+  border: solid 2px #1b1b1b;
   border-radius: 12px;
   box-shadow: 6px 4px 2px #000; }
 
+.cont-titulo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .cont-titulo img {
+    margin-left: 3rem;
+    width: 220px; }
+
 #titulo {
-  font-size: 2.6rem;
-  font-weight: 600; }
+  font-size: 3.8rem;
+  font-weight: 700;
+  text-shadow: 4px 4px 2px #000; }
 
 #ubicacion-nombre {
   color: #dbdbdb;
@@ -119,6 +133,8 @@ nav a {
   font-size: 4rem;
   font-weight: 600;
   text-shadow: 2px 2px 2px #000; }
+  #ubicacion-nombre #txt-Hora {
+    font-size: 2rem; }
 
 .cont-stats {
   /* border: solid 1px #f90000; */
@@ -127,7 +143,9 @@ nav a {
   align-items: center;
   padding: 17px;
   gap: 20px; }
-  .cont-stats h1, .cont-stats h4, .cont-stats p {
+  .cont-stats h1,
+  .cont-stats h4,
+  .cont-stats p {
     color: #dbdbdb;
     text-shadow: 2px 2px 2px #000; }
 
@@ -171,6 +189,9 @@ nav a {
   padding: 2px;
   text-align: center; }
 
+.cont-img img {
+  filter: drop-shadow(1px 1px 10px #000000d4); }
+
 /* .stats {
     border: solid 3px #000;
     width: 200px;
@@ -178,11 +199,44 @@ nav a {
 footer {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   height: 100px;
   background-color: #dbdbdb;
   padding: 0.6rem; }
+  footer .cont-titlefooter h4, footer .cont-titlefooter p {
+    text-align: center; }
   footer h1 {
     font-size: 2.2rem; }
   footer .cont-1 li {
     list-style: none; }
+
+.cont-historial {
+  position: fixed;
+  height: 502px;
+  width: 320px;
+  left: 68%;
+  top: 5.4%;
+  backdrop-filter: blur(10px) contrast(68%);
+  padding: 12px;
+  border: solid 1px;
+  border-radius: 6px;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: hidden;
+  box-shadow: 4px 3px 4px #000; }
+
+.cont-historial-deco {
+  background-color: rgba(0, 102, 255, 0.169);
+  border-radius: 6px; }
+
+.cont-historial .msg-nohistorial p {
+  position: fixed;
+  bottom: 50%;
+  left: 16%;
+  color: #dbdbdb;
+  text-shadow: 4px 4px 4px #000; }
+
+.content-h-climas:hover {
+  background-color: rgba(8, 0, 255, 0.121); }

@@ -5,7 +5,14 @@
     rgba(63, 94, 251, 1) 22%,
     rgba(70, 165, 252, 1) 78%
   );
-  background: url("../resources/back-weather.webp");
+  background: linear-gradient(rgba(0, 0, 0, 0.379), rgba(0, 0, 0, 0.345)),
+    url("https://res.cloudinary.com/dfnton7oq/image/upload/v1723351960/weather%20app/day_c0ldtt.jpg");
+  background-size: cover;
+}
+
+//dia
+.bg-noche {
+  background: url("https://res.cloudinary.com/dfnton7oq/image/upload/v1723428052/weather%20app/night_fbdel6_i8biqv.jpg");
   background-size: cover;
 }
 
@@ -17,20 +24,33 @@
 }
 
 .cont-weather {
-  backdrop-filter: blur(10px) contrast(78%);
+  backdrop-filter: blur(10px) contrast(48%);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   width: 700px;
   height: 700px;
-  border: solid 3px rgb(27, 27, 27);
+  border: solid 2px rgb(27, 27, 27);
   border-radius: 12px;
   box-shadow: 6px 4px 2px #000;
 }
 
+.cont-titulo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    margin-left: 3rem;
+    width: 220px;
+  }
+}
+
 #titulo {
-  font-size: 2.6rem;
-  font-weight: 600;
+  font-size: 3.8rem;
+  font-weight: 700;
+  text-shadow: 4px 4px 2px #000;
 }
 
 #ubicacion-nombre {
@@ -43,6 +63,10 @@
   font-size: 4rem;
   font-weight: 600;
   text-shadow: 2px 2px 2px #000;
+
+  #txt-Hora {
+    font-size: 2rem;
+  }
 }
 
 .cont-stats {
@@ -53,9 +77,11 @@
   padding: 17px;
   gap: 20px;
 
-  h1, h4, p{
+  h1,
+  h4,
+  p {
     color: #dbdbdb;
-  text-shadow: 2px 2px 2px #000;
+    text-shadow: 2px 2px 2px #000;
   }
 }
 
@@ -101,6 +127,12 @@
   border-radius: 10px;
   padding: 2px;
   text-align: center;
+}
+
+.cont-img {
+  img {
+    filter: drop-shadow(1px 1px 10px #000000d4);
+  }
 }
 
 /* .stats {

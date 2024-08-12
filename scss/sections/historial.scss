@@ -1,0 +1,33 @@
+.cont-historial {
+  position: fixed;
+  height: 502px;
+  width: 320px;
+  left: 68%;
+  top: 5.4%;
+  backdrop-filter: blur(10px) contrast(68%);
+  padding: 12px;
+  border: solid 1px;
+  border-radius: 6px;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: hidden;
+  box-shadow: 4px 3px 4px #000;
+}
+
+.cont-historial-deco {
+  background-color: rgba(0, 102, 255, 0.169);
+  border-radius: 6px;
+}
+.cont-historial .msg-nohistorial p {
+  position: fixed;
+  bottom: 50%;
+  left: 16%;
+  color: #dbdbdb;
+  text-shadow: 4px 4px 4px #000;
+}
+
+.content-h-climas:hover {
+  background-color: rgba(8, 0, 255, 0.121);
+}

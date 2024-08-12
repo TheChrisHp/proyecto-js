@@ -2,6 +2,7 @@
 const container = document.querySelector(".cont-weather");
 //traigo titulo para limpiarlo despues de buscar un clima
 const titulo = document.getElementById("titulo");
+const contTitulo = document.querySelector(".cont-titulo");
 //Contenedor STATS
 const contStats = document.querySelector(".cont-stats");
 const Stats = document.querySelector(".stats");
@@ -9,6 +10,10 @@ const Stats = document.querySelector(".stats");
 const form = document.getElementById("form");
 const ciudad = document.getElementById("ciudad");
 const pais = document.getElementById("pais");
+let bgApp = document.querySelector(".bg-body");
+//Alertas
+const fondoApp = document.querySelector(".alertas");
+const containerH = document.querySelector(".cont-historial");
 
 // Creo un array vacío para posteriormente
 // almacenar la ciudad y pais que el usuario consulte, para
@@ -41,16 +46,31 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  //creo objeto para almacenar datos del clima y pushearlos al array
-  let climaObjetos = {
-    ciudad: ciudad.value,
-    pais: pais.value,
-  };
-  climas.push(climaObjetos); //pusheo los datos al array vacío
-
   api(ciudad.value, pais.value);
   localStorage.setItem("clima", JSON.stringify(climas));
+
+  //alerta + condicion para que no se duplique la alerta
+  const alertaSinDuplicado = climas.some(
+    (clima) => clima.ciudad === ciudad.value //devuelve TRUE
+  );
+  //si es true el ! lo invierte a FALSE entonces cuando
+  //la condicion de SOME se ejecute será cuando una u otra ciudad no esté en el array
+  if (!alertaSinDuplicado) {
+    Toastify({
+      text: `Estás viendo como está ${ciudad.value}`,
+      duration: 5000,
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      },
+    }).showToast();
+  }
 });
+
 const api = (ciudad, pais) => {
   let keyApi = "c1fa157a6e248580ac0462516edb891e";
   let callApi = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${keyApi}`;
@@ -75,6 +95,7 @@ const api = (ciudad, pais) => {
         console.log(dataJSON);
       }
       titulo.innerHTML = "";
+      contTitulo.innerHTML = "";
       mostrarClima(dataJSON);
     })
     .catch((error) => {
@@ -82,10 +103,38 @@ const api = (ciudad, pais) => {
     });
 };
 
+//Creo una funcion para pasar de Grados Farenhit a Grados Centigrados.
+const parseACentigrados = (temperatura) => {
+  let tempCen = temperatura - 273.15;
+
+  return Math.round(tempCen); //redondeo temperatura al valor mas cercano
+};
+//creo variable para limpiar el horario en tiempo real
+let intervalo;
+//creo funcion tiempo en tiempo real según libreria Luxon
+const tiempoCiudad = (tiempo) => {
+  if (intervalo) {
+    clearInterval(intervalo);
+  }
+  const tiempoEnHoras = tiempo / 3600;
+  const actualizarTiempo = () => {
+    const now = luxon.DateTime.now().setZone(
+      `UTC${tiempoEnHoras >= 0 ? "+" : ""}${tiempoEnHoras}`
+    );
+    const horaElement = document.getElementById("txt-Hora");
+
+    horaElement.textContent = now.toFormat("hh:mm a");
+  };
+
+  actualizarTiempo();
+  intervalo = setInterval(actualizarTiempo, 1000); //actualizo tiempo cada 1 segundo
+};
+
 const mostrarClima = (data) => {
   //desestructuro los objetos del ARRAY del CLIMA traido de la API
   let {
     name,
+    timezone,
     main: { temp, temp_min, temp_max, humidity, pressure },
   } = data;
 
@@ -94,57 +143,104 @@ const mostrarClima = (data) => {
   let tempMax = parseACentigrados(temp_max);
   let tempActual = parseACentigrados(temp);
 
-  //pusheo temperaturas y estadisticas al Array
-  let estadisticas = {
-    temperatura: tempActual,
-    temperaturaMax: tempMax,
-    temperaturaMin: tempMin,
-    humedad: humidity,
-    presionAtmosferica: pressure,
-  };
-  climas.push(estadisticas);
-  localStorage.setItem("clima", JSON.stringify(climas)); //guardo estadisitcas en el LS.
-  console.log(climas);
-
   //traigo un DIV vacío para agregar las IMAGENES del clima y pintarlas en el DOM
   let contIMG = document.querySelector(".cont-img");
   contIMG.innerHTML = `<img style="width:220px;" id="img-Weather" src="" alt="img">`;
   let imgWeather = document.getElementById("img-Weather"); //traigo el ID del img creado
 
-  //Creo condicional (SWITCH) para agregar IMAGENES del Clima traidos de la API y mostrarlos en el DOM
-  switch (data.weather[0].main) {
-    case "Clouds":
-      imgWeather.src = "../resources/nubes.svg";
-      break;
-    case "Rain":
-      imgWeather.src = "../resources/lluvia.svg";
-      break;
-    case "Mist":
-      imgWeather.src = "../resources/neblina.png";
-      break;
-    case "Snow":
-      imgWeather.src = "../resources/nieve.png";
-      break;
-    case "Clear":
-      imgWeather.src = "../resources/soleado.png";
-      break;
-    case "Wind":
-      imgWeather.src = "../resources/viento.svg";
-      break;
-    default:
-      imgWeather.src = "../resources/llovizna.png";
+  //evaluo el tiempo en milisegundos
+  const salidaSol = data.sys.sunrise * 1000;
+  const puestaSol = data.sys.sunset * 1000;
+  const horaActual = Date.now(); //hora actual
+
+  //evaluo si es de dia o de noche para cambiar las img
+  const tiempoDia = horaActual >= salidaSol && horaActual < puestaSol;
+
+  // si es de dia coloca el background dia y si es de noche lo contrario.
+  if (tiempoDia) {
+    bgApp.className = "bg-body";
+  } else {
+    bgApp.className = "bg-noche";
   }
 
-  //prueba de colocar horario
-  const horario = new Date();
-  const horas = horario.getHours();
-  const minutos = horario.getMinutes();
+  if (tiempoDia) {
+    //Creo condicional (SWITCH) para agregar IMAGENES del Clima traidos de la API y mostrarlos en el DOM
+    switch (data.weather[0].description) {
+      //lluvia
+      case "rain":
+        imgWeather.src = "../resources/lluvia.svg";
+        break;
+      case "shower rain":
+        imgWeather.src = "../resources/llovizna.png";
+        break;
+      case "thunderstorm":
+        imgWeather.src = "../resources/truenos.webp";
+        break;
+      //nubes
+      case "broken clouds":
+        imgWeather.src = "../resources/nubes.svg";
+        break;
+      case "few clouds":
+        imgWeather.src = "../resources/few-clouds.png";
+        break;
+      case "scattered clouds":
+        imgWeather.src = "../resources/nubes.svg";
+        break;
+      case "snow":
+        imgWeather.src = "../resources/nieve.png";
+        break;
+      case "clear sky":
+        imgWeather.src = "../resources/soleado.png";
+        break;
+      case "mist":
+        imgWeather.src = "../resources/mist.webp";
+        break;
+      default:
+        imgWeather.src = "../resources/llovizna.png";
+    }
+  } else {
+    switch (data.weather[0].description) {
+      case "clear sky":
+        imgWeather.src = "../resources/luna.webp";
+        break;
+      case "few clouds":
+        imgWeather.src = "../resources/few-clouds-night.webp";
+        break;
+      default:
+        imgWeather.src = "../resources/llovizna.png";
+    }
+  }
 
-  const texto = `${horas}:${minutos}`;
+  //pusheo temperaturas y estadisticas al Array
+  let estadisticas = {
+    ciudad: ciudad.value,
+    pais: pais.value,
+    clima: data.weather[0].description,
+    amanecer: data.sys.sunrise,
+    atardecer: data.sys.sunset,
+    estadisticas: {
+      temperatura: tempActual,
+      temperaturaMax: tempMax,
+      temperaturaMin: tempMin,
+      humedad: humidity,
+      presionAtmosferica: pressure,
+    },
+  };
+
+  //evitar duplicación
+  const existeClima = climas.some(
+    (clima) => clima.ciudad.toLowerCase() === estadisticas.ciudad.toLowerCase()
+  );
+
+  if (!existeClima && estadisticas.ciudad !== "") {
+    climas.push(estadisticas);
+    localStorage.setItem("clima", JSON.stringify(climas)); //guardo estadisitcas en el LS.
+  }
 
   //traigo nombre de ubicacion para mostrarlo en el DOM
   let ubicacion = document.getElementById("ubicacion-nombre");
-  ubicacion.innerHTML = `${name} <h4 style="font-size: 2rem;">${texto}</h4>`;
+  ubicacion.innerHTML = `${name} <p id="txt-Hora"></p>`; // Añadido al DOM aquí
+  tiempoCiudad(timezone); // Llamada a tiempoCiudad después de añadir #txt-Hora al DOM
 
   //creo elementos para pintar las STATS de la APP CLIMA en el DOM
   let statsWeather = document.createElement("div");
@@ -155,22 +251,94 @@ const mostrarClima = (data) => {
   <h4 style="font-weight: 400;">T.Min ${tempMin}°C</h4>
 
   <div style="margin-top: 10px; display: flex; justify-content: start; align-items: center; gap: 4px;">
-  <p>${humidity}</p>
-  <img style="width: 20px; height: 20px;" src="../resources/humedad.webp" alt="icon-humedad">
+  <p>${humidity}%</p>
+  <img style="width: 20px; height: 20px;" title="humedad" src="../resources/humedad.webp" alt="icon-humedad">
+  
   <br>
   <p>${pressure}</p>
-  <img style="width: 20px; height: 20px;" src="../resources/presion-atmosferica.webp" alt="icon-presion-atmosférica">
+  <img style="width: 20px; height: 20px;" title="presión atmosférica" src="../resources/presion-atmosferica.webp" alt="icon-presion-atmosférica">
   </div>
   </div>`;
   Stats.innerHTML = ``; //borra la anterior impresión al DOM para que no se duplique.
   Stats.appendChild(statsWeather);
+  historialClimas(climas);
 };
 
-//Creo una funcion para pasar de Grados Farenhit a Grados Centigrados.
-const parseACentigrados = (temperatura) => {
-  let tempCen = temperatura - 273.15;
+// Historial de Climas
+const historialClimas = (array) => {
+  containerH.innerHTML = "";
+  let historialClima = array.slice(0, 7);
+  historialClima.forEach((elemento) => {
+    if (elemento.estadisticas && elemento.estadisticas.temperatura !== null) {
+      let contHistorial = document.createElement("div");
+      let imgHistorial = document.createElement("img");
+      const salidaSol = elemento.amanecer * 1000;
+      const puestaSol = elemento.atardecer * 1000;
+      const horaActual = Date.now(); //hora actual
+      const tiempoDia = horaActual >= salidaSol && horaActual < puestaSol;
 
-  return Math.round(tempCen); //redondeo temperatura al valor mas cercano
+      if (tiempoDia) {
+        switch (elemento.clima) {
+          case "broken clouds":
+            imgHistorial.src = "../resources/nubes.svg";
+            break;
+          case "few clouds":
+            imgHistorial.src = "../resources/few-clouds.png";
+            break;
+          case "scattered clouds":
+            imgHistorial.src = "../resources/nubes.svg";
+            break;
+          case "rain":
+            imgHistorial.src = "../resources/lluvia.svg";
+            break;
+          case "mist":
+            imgHistorial.src = "../resources/mist.webp";
+            break;
+          case "snow":
+            imgHistorial.src = "../resources/nieve.png";
+            break;
+          case "clear sky":
+            imgHistorial.src = "../resources/soleado.png";
+            break;
+          case "wind":
+            imgHistorial.src = "../resources/viento.svg";
+            break;
+          case "thunderstorm":
+            imgHistorial.src = "../resources/truenos.webp";
+            break;
+          case "shower rain":
+            imgHistorial.src = "../resources/llovizna.png";
+            break;
+          default:
+            imgHistorial.src = "../resources/llovizna.png";
+        }
+      } else {
+        switch (elemento.clima) {
+          case "clear sky":
+            imgHistorial.src = "../resources/luna.webp";
+            break;
+          case "few clouds":
+            imgHistorial.src = "../resources/few-clouds-night.webp";
+            break;
+          default:
+            imgHistorial.src = "../resources/llovizna.png";
+        }
+      }
+      contHistorial.innerHTML = `
+      <section class="cont-historial-deco">
+      <div class="content-h-climas" style="border: solid 1px #000; border-radius: 6px; display: flex; align-items: center; padding: 9px; gap: 10px; justify-content: 
+      space-between; vertical-align:middle;">
+          <img style="width: 50px;" src="${imgHistorial.src}">
+          <h3 style="color: #080000;">${elemento.ciudad}</h3>
+          <div style="display: flex; flex-direction:column; align-items:center;">
+            <p style="">${elemento.estadisticas.temperatura}°C</p>
+          </div>
+        </div>
+      </section>`;
+
+      containerH.appendChild(contHistorial);
+    }
+  });
 };
 
 const msgError = (mensaje) => {

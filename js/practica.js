@@ -399,3 +399,13 @@
 //   contenido.className = "card";
 //   div.appendChild(contenido);
 // });
+
+// FETCH
+
+// let peticion = fetch("https://jsonplaceholder.typicode.com/todos");
+
+// let arrayTodos = []
+
+// peticion.then((res) => res.json()).then((res) => arrayTodos.push(res));
+
+// console.log(arrayTodos)
