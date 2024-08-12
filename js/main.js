@@ -229,7 +229,7 @@ const mostrarClima = (data) => {
 
   //evitar duplicación
   const existeClima = climas.some(
-    (clima) => clima.ciudad.toLowerCase() === estadisticas.ciudad.toLowerCase()
+    (clima) => clima.ciudad === estadisticas.ciudad
   );
 
   if (!existeClima && estadisticas.ciudad !== "") {
