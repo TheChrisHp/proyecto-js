@@ -335,7 +335,17 @@ const historialClimas = (array) => {
           </div>
         </div>
       </section>`;
+      contHistorial.style.opacity = 0;
       containerH.appendChild(contHistorial);
+
+      //animacion con libreria GSAP
+      gsap.to(contHistorial, {
+        duration: 1,
+        opacity: 1,
+        y: -2,
+        ease: "power2.out",
+        delay: 0.2,
+      });
     }
   });
 };
