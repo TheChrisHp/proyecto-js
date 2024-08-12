@@ -11,6 +11,7 @@
 - Diseño implementado cuando la APP esté vacía sin datos en el LS
 - Se eliminaron duplicaciones
 - Agregadas notas de descripción al pasar el cursor en los íconos de stats
+- Cambios estéticos implementados (movimiento, interacciones, etc)
 - Otras modificaciones
 
 ## Tercera Entrega ⌛

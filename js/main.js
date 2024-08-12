@@ -145,7 +145,7 @@ const mostrarClima = (data) => {
 
   //traigo un DIV vacío para agregar las IMAGENES del clima y pintarlas en el DOM
   let contIMG = document.querySelector(".cont-img");
-  contIMG.innerHTML = `<img style="width:220px;" id="img-Weather" src="" alt="img">`;
+  contIMG.innerHTML = `<img style="width:220px;" id="img-Weather" src="" alt="img" data-tilt>`;
   let imgWeather = document.getElementById("img-Weather"); //traigo el ID del img creado
 
   //evaluo el tiempo en milisegundos
@@ -329,7 +329,7 @@ const historialClimas = (array) => {
       <div class="content-h-climas" style="border: solid 1px #000; border-radius: 6px; display: flex; align-items: center; padding: 9px; gap: 10px; justify-content: 
       space-between; vertical-align:middle;">
           <img style="width: 50px;" src="${imgHistorial.src}">
-          <h3 style="color: #080000;">${elemento.ciudad}</h3>
+          <h3 style="color: #dbdbdbdb;font-weight:500;">${elemento.ciudad}</h3>
           <div style="display: flex; flex-direction:column; align-items:center;">
             <p style="">${elemento.estadisticas.temperatura}°C</p>
           </div>

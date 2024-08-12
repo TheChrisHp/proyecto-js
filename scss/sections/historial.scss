@@ -19,6 +19,10 @@
 .cont-historial-deco {
   background-color: rgba(0, 102, 255, 0.169);
   border-radius: 6px;
+  color: #fffce5;
+  font-weight: 600;
+  text-shadow: 2px 2px 1px #000;
+  cursor: pointer;
 }
 .cont-historial .msg-nohistorial p {
   position: fixed;
