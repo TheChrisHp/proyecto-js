@@ -6,8 +6,15 @@
 .header-first {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   background-color: #000;
   padding: 5rem;
+}
+
+.img-header{
+  img{
+    width: 600px;
+  }
 }
 
 .header-index {
